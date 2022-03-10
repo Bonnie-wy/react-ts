@@ -1,13 +1,15 @@
 import React from 'react'
+import { IState as IProps } from "../App"
 
-interface IProps {
-  people: {
-    name: string
-    id: number
-    url: string
-    position?: string
-  }[]
-}
+// import it from App.js
+// interface IProps {
+//   people: {
+//     name: string
+//     id: number
+//     url: string
+//     position?: string
+//   }[]
+// }
 
 //define type as react functional component with the type of iProps
 export const List: React.FC<IProps> = ({ people }) => {

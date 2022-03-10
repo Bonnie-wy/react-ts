@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
+import AddToList from './components/AddToList';
 import { List } from "./components/List"
 
-interface IState {
+export interface IState {
   people: {
     name: string
     id: number
@@ -24,6 +25,7 @@ function App() {
     <div className="App">
       <h1>Employee list</h1>
       <List people={people} />
+      <AddToList people={people} setPeople={setPeople} />
     </div>
   );
 }
