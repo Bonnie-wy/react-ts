@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { List } from "./components/List"
+
+interface IState {
+  people: {
+    name: string
+    id: number
+    url: string
+    position?: string
+  }[]
+}
 
 function App() {
+
+  const [people, setPeople] = useState<IState["people"]>([{
+    name: "John Doe",
+    url: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+    id: 1,
+    position: "Finance Manager",
+  }])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Employee list</h1>
+      <List people={people} />
     </div>
   );
 }
 
 export default App;
+
+// {
+//   name: "John Doe",
+//   url: "",
+//   id: "1",
+//   position: "Finance Manager",
+// },
+// {
+//   name: "John Doe",
+//   url: "",
+//   id: "2",
+//   position: "Head of People",
+// },
