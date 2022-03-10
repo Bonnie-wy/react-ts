@@ -8,12 +8,14 @@ interface IProps {
 
 const AddToList: React.FC<IProps> = ({ people, setPeople }) => {
 
-  const [input, setInput] = useState({
+  const defaultState = {
     name: "",
     url: "",
     id: "",
     position: "",
-  })
+  }
+
+  const [input, setInput] = useState(defaultState)
   const [error, setError] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
@@ -34,12 +36,7 @@ const AddToList: React.FC<IProps> = ({ people, setPeople }) => {
         position: input.position,
       }
     ])
-    setInput({
-      name: "",
-      url: "",
-      id: "",
-      position: "",
-    })
+    setInput(defaultState)
   }
 
   return (
